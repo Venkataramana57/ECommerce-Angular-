@@ -1,0 +1,27 @@
+.cart-container {
+  margin: 20px;
+}
+
+.cart-list {
+  display: flex;
+  flex-direction: column; /* Stack items vertically */
+  gap: 20px;  /* Space between each item */
+}
+
+.product-tile {
+  max-width: 600px;  /* Adjust max width to fit the card */
+  margin: 0 auto;  /* Center the card horizontally */
+  padding: 16px;
+}
+
+.product-info {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10px;
+}
+
+.action-buttons {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 16px;
+}

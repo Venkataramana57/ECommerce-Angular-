@@ -1,0 +1,15 @@
+<div class="profile-menu-container" *ngIf="email">
+  <div class="profile-icon" (click)="toggleMenu()">
+    <img src="assets/profile.png" alt="Profile Icon" class="profile-image">
+  </div>
+
+  <div class="profile-menu" *ngIf="isMenuVisible">
+		<div class="profile-info">
+      <p>{{ username }}</p>
+    </div>
+    <div class="profile-info">
+      <p>{{ email }}</p>
+    </div>
+    <button class="logout-btn" (click)="logout()">Logout</button>
+  </div>
+</div>

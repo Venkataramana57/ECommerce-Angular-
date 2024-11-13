@@ -1,0 +1,26 @@
+<div class="product-grid-container">
+  <mat-grid-list cols="4" rowHeight="400px" gutterSize="20px" class="product-list">
+    <mat-grid-tile *ngFor="let product of products">
+      <mat-card class="product-tile">
+        <img mat-card-image [src]="defaultImage" alt="{{ product.title }}" />
+        <mat-card-content>
+          <h3>{{ product.title }}</h3>
+          <p>Price: ${{ product.price.$numberDecimal }}</p>
+
+          <!-- Display status and quantity side by side -->
+          <div class="product-info">
+            <span>Status: {{ product.status }}</span>
+            <span>Quantity: {{ product.quantity }}</span>
+          </div>
+        </mat-card-content>
+
+        <mat-card-actions class="action-buttons">
+          <!-- Add to Cart Button -->
+          <button mat-button (click)="addToCart(product)">Add to Cart</button>
+          <!-- Product Details Button -->
+          <button mat-button (click)="viewDetails(product)">Details</button>
+        </mat-card-actions>
+      </mat-card>
+    </mat-grid-tile>
+  </mat-grid-list>
+</div>

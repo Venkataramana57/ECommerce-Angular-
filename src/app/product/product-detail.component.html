@@ -1,0 +1,34 @@
+<mat-card *ngIf="product" class="product-detail-card">
+  <mat-card-header>
+    <mat-card-title>{{ product.title }}</mat-card-title>
+  </mat-card-header>
+
+  <img mat-card-image [src]="defaultImage" alt="{{ product.title }}" />
+
+  <mat-card-content>
+    <div><strong>Details:</strong>
+			<ul>
+				<li>Bluetooth-enabled, noise-canceling wireless earbuds with a charging case</li>
+				<li>100% organic cotton bed sheets, soft and breathable, includes fitted sheet, flat sheet, and two pillowcases</li>
+				<li>Lightweight, breathable running shoes with cushioned soles for maximum comfort</li>
+				<li>Compact, USB-rechargeable blender, perfect for smoothies and shakes on the go.</li>
+			</ul>
+		</div>
+    <p><strong>Price:</strong> ${{ product.price.$numberDecimal }}</p>
+    <p><strong>Quantity:</strong> {{ product.quantity }}</p>
+    <p><strong>Status:</strong> {{ product.status }}</p>
+  </mat-card-content>
+
+  <mat-card-actions class="action-buttons">
+	<ng-container *ngIf="isRetailer; else nonRetailerActions">
+	  <button mat-button color="primary">Delete</button>
+	  <button mat-button color="warn">Edit</button>
+	</ng-container>
+	
+	<ng-template #nonRetailerActions>
+	  <button mat-button color="primary" (click)="addToCart(product)">Add to Cart</button>
+	  <button mat-button color="primary" (click)="gotoCart()">Checkout</button>
+	</ng-template>
+	<button mat-button color="primary" (click)="gotoProducts()">Back</button>
+  </mat-card-actions>
+</mat-card>

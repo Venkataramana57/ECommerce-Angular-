@@ -1,0 +1,41 @@
+/* Make sure the component fills the whole screen */
+:host {
+	display: block;
+	height: 100vh;
+	width: 100%;
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+/* Flexbox container for centering */
+.signup-form {
+	display: flex;
+	flex-direction: column;
+	justify-content: center; /* Centers the form vertically */
+	align-items: center;     /* Centers the form horizontally */
+	height: 100%;
+	max-width: 400px;
+	margin: 0 auto;
+	padding: 20px;
+	box-sizing: border-box;
+	background-color: #fff;
+	border-radius: 8px;
+	box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Full width for form fields and button */
+.full-width {
+	width: 100%;
+}
+
+/* Optional: Styling for Material error messages */
+mat-error {
+	color: red;
+}
+
+/* Loading spinner style */
+.loading-spinner {
+	text-align: center;
+	margin-top: 10px;
+}

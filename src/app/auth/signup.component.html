@@ -1,0 +1,58 @@
+<form [formGroup]="signupForm" (ngSubmit)="onSubmit()" class="input-form">
+  <div class="form-group">
+    <mat-form-field appearance="fill" class="full-width">
+      <mat-label>Name</mat-label>
+      <input matInput id="name" formControlName="name" />
+      <mat-error *ngIf="f['name'].invalid && f['name'].touched">Name is required.</mat-error>
+    </mat-form-field>
+  </div>
+
+  <div class="form-group">
+    <mat-form-field appearance="fill" class="full-width">
+      <mat-label>Email</mat-label>
+      <input matInput id="email" formControlName="email" type="email" />
+      <mat-error *ngIf="f['email'].invalid && f['email'].touched">
+        Please enter a valid email.
+      </mat-error>
+    </mat-form-field>
+  </div>
+
+  <div class="form-group">
+    <mat-form-field appearance="fill" class="full-width">
+      <mat-label>Password</mat-label>
+      <input matInput id="password" type="password" formControlName="password" />
+      <mat-error *ngIf="f['password'].invalid && f['password'].touched">Password is required.</mat-error>
+    </mat-form-field>
+  </div>
+
+  <div class="form-group">
+    <mat-form-field appearance="fill" class="full-width">
+      <mat-label>Confirm Password</mat-label>
+      <input matInput id="confirmPassword" type="password" formControlName="confirmPassword" />
+      <mat-error *ngIf="f['confirmPassword'].invalid && f['confirmPassword'].touched">
+        Confirm password is required.
+      </mat-error>
+    </mat-form-field>
+  </div>
+
+  <div class="form-group">
+    <mat-form-field appearance="fill" class="full-width">
+      <mat-label>Role</mat-label>
+      <mat-select formControlName="role">
+        <mat-option value="retailer">Retailer</mat-option>
+        <mat-option value="customer">Customer</mat-option>
+      </mat-select>
+    </mat-form-field>
+  </div>
+
+  <div *ngIf="errorMessage" class="alert alert-danger">{{ errorMessage }}</div>
+
+	<div class="actions">
+		<button mat-raised-button color="primary" type="submit" [disabled]="loading" class="full-width">
+			{{ loading ? 'Signing Up...' : 'Sign Up' }}
+		</button>
+		<a mat-button (click)="goToLogin()">Login?</a>
+	</div>
+
+  <div *ngIf="loading" class="loading-spinner"></div>
+</form>

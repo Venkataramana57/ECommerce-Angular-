@@ -1,0 +1,23 @@
+<div class="cart-container">
+  <div class="cart-list">
+    <mat-card *ngFor="let product of cartItems" class="product-tile">
+      <img mat-card-image [src]="defaultImage" alt="{{ product.title }}" />
+      
+      <mat-card-content>
+        <h3>{{ product.title }}</h3>
+        <p>Price: ${{ product.price.$numberDecimal }}</p>
+
+        <!-- Display status and quantity side by side -->
+        <div class="product-info">
+          <span>Status: {{ product.status }}</span>
+          <span>Quantity: {{ product.quantity }}</span>
+        </div>
+      </mat-card-content>
+
+      <mat-card-actions class="action-buttons">
+        <button mat-button (click)="removeFromCart(product)">Remove from Cart</button>
+        <button mat-button (click)="viewDetails(product)">Details</button>
+      </mat-card-actions>
+    </mat-card>
+  </div>
+</div>
